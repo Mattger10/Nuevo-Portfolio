@@ -34,7 +34,7 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
           sx={{
             marginBottom: "10rem",
             marginRight: "35rem",
-            "@media screen and (max-width: 768px)": {
+            "@media screen and (max-width: 560px)": {
               width: "5rem",
               marginRight: "0rem",
             },
@@ -81,9 +81,9 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
               fontFamily: "Font",
               marginLeft: "64rem",
               marginTop: "-4rem",
-              "@media screen and (max-width: 768px)": {
+              "@media screen and (max-width: 560px)": {
                 fontSize: "15px",
-                marginLeft: "-5rem",
+                marginLeft: "-7rem",
                 marginTop: "5rem",
               },
             }}
@@ -97,7 +97,10 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
                   cursor: "pointer",
                   marginTop: "0.5rem",
                   marginLeft: "2rem",
-                  fontSize: "large"
+                  fontSize: "large",
+                  "@media (max-width: 560px)": { 
+                    marginTop: "-1.3rem",
+                    marginLeft: "15rem",                  }
                 }}
               />
             </Tooltip>
@@ -109,9 +112,9 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
               fontFamily: "Font",
               marginLeft: "70rem",
               marginTop: "0rem",
-              "@media screen and (max-width: 768px)": {
+              "@media screen and (max-width: 560px)": {
                 fontSize: "14px",
-                marginLeft: "-5rem",
+                marginLeft: "-7rem",
                 marginTop: "0.5rem",
               },
             }}
@@ -125,7 +128,10 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
               cursor: "pointer",
               marginTop: "0.5rem",
               marginLeft: "2.5rem",
-              fontSize: "large"
+              fontSize: "large",
+              "@media (max-width: 560px)": { 
+                marginTop: "0rem",
+                marginLeft: "6.4rem",                  }
             }}
           />
         </Tooltip>
@@ -134,6 +140,7 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
             variant="h6"
             noWrap
             component="a"
+            href="home"
             onClick={() => scrollToSection("home")}
             sx={{
               position: "absolute",
@@ -196,5 +203,7 @@ const Contenedor = styled("div")(() => ({
   alignItems: "center",
   height: "100vh",
   marginBottom: "0rem",
+  width: "auto",  
+  border: "2px solid red",
   "@media screen and (max-width: 768px)": {},
 }));

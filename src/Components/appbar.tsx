@@ -36,6 +36,10 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({
           height: "100%",
           marginRight: 5,
           cursor: "pointer",
+          "@media (max-width: 560px)": {
+            border: "2px solid red",
+            marginRight: 50,
+          },
         }}
       >
         <Container maxWidth="xl" sx={{ mt: 15 }}>

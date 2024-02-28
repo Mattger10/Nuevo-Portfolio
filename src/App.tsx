@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Home from "./Components/Home";
-import AboutMe from "./Components/AboutMe";
 import styled from "styled-components";
+import fondo from "./assets/imagenes/Sin título-1.png";
 import ResponsiveAppBar from "./Components/appbar";
+import AboutMe from "./Components/AboutMe";
 import Skills from "./Components/Skills";
 import Proyects from "./Components/Proyects";
 import Contact from "./Components/Contact";
-import fondo from "./assets/imagenes/Sin título-1.png";
 
 
 function App() {
@@ -20,17 +20,20 @@ function App() {
     }
   };
 
+
+
   return (
     <>
       <div>
         
-        <Fondo src={fondo} alt="" />
+      <Fondo src={fondo} alt="" />
         <ResponsiveAppBar scrollToSection={scrollToSection} />
         <Home id="home"/>
         <AboutMe id="aboutme" />
         <Skills id="skills" />
         <Proyects id="proyects" />
         <Contact id="contact"  scrollToSection={scrollToSection} />
+        
       </div>
     </>
   );

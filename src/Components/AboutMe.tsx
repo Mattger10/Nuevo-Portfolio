@@ -18,8 +18,8 @@ const AboutMe: FunctionComponent<AboutMeProps> = ({ id }) => {
             textAlign: "justify",
             color: "white",
             marginTop: "0rem",
-            "@media screen and (max-width: 768px)": {
-              width: "23rem", marginTop: "-5rem",
+            "@media screen and (max-width: 560px)": {
+              width: "22rem", marginTop: "-5rem",
             },
           }}
         >
@@ -61,6 +61,8 @@ const Contenedor = styled("div")(() => ({
   height: "100vh",
   marginTop: "0rem",
   marginBottom: "0rem",
+  width: "auto",  
+  border: "2px solid red",
   
   "@media screen and (max-width: 768px)": {},
 }));

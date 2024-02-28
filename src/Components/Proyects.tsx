@@ -67,6 +67,8 @@ const Contenedor = styled("div")(() => ({
   alignItems: "center",
   height: "100vh",
   marginBottom: "0rem",
+  width: "auto",  
+  border: "2px solid red",
   
   "@media screen and (max-width: 768px)": {
   },

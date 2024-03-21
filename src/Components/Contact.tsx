@@ -143,9 +143,14 @@ const Contact: FunctionComponent<ContactProps> = ({ id, textChanged }) => {
                 marginLeft: "-7rem",
                 marginTop: "0.5rem",
               },
+              "&:hover": {
+                color: "#a37b39",
+              },
             }}
           >
-            +54 0 379 4 818329
+            <a href="tel:+5403794818329" style={{ color: "inherit", textDecoration: "none" }}>
+              +54 0 379 4 818329
+            </a>
             <Tooltip title={copiedPhone ? "Copied!" : "Copy phone number"}>
               <ContentCopyIcon
                 onClick={handleCopyPhoneClick}

@@ -16,8 +16,8 @@ import aboutMeData2 from "./es.json";
 import { Link } from "react-router-dom";
 import Switch from "@mui/material/Switch";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import SummarizeIcon from '@mui/icons-material/Summarize';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import SummarizeIcon from "@mui/icons-material/Summarize";
 import { Tooltip } from "@mui/material";
 
 interface ResponsiveAppBarProps {
@@ -102,17 +102,17 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                 rel="noopener noreferrer"
               >
                 <Tooltip title={"GitHub"}>
-                <GitHubIcon
-                  sx={{
-                    color: "white",
-                    width: "30px",
-                    height: "30px",
-                    marginRight: "10px", 
-                    "&:hover": {
-                      color: "#a37b39"
-                    },
-                  }}
-                />
+                  <GitHubIcon
+                    sx={{
+                      color: "white",
+                      width: "30px",
+                      height: "30px",
+                      marginRight: "10px",
+                      "&:hover": {
+                        color: "#a37b39",
+                      },
+                    }}
+                  />
                 </Tooltip>
               </a>
               <a
@@ -121,15 +121,17 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                 rel="noopener noreferrer"
               >
                 <Tooltip title={"Linkedin"}>
-                <LinkedInIcon  sx={{
-                  color: "white",
-                  width: "40px",
-                  height: "35px",
-                  marginRight: "10px", 
-                  "&:hover": {
-                    color: "#a37b39"
-                  },
-                }}/>
+                  <LinkedInIcon
+                    sx={{
+                      color: "white",
+                      width: "40px",
+                      height: "35px",
+                      marginRight: "10px",
+                      "&:hover": {
+                        color: "#a37b39",
+                      },
+                    }}
+                  />
                 </Tooltip>
               </a>
               <a
@@ -138,15 +140,17 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                 rel="noopener noreferrer"
               >
                 <Tooltip title={"CV"}>
-                <SummarizeIcon sx={{
-                   color: "white",
-                   width: "35px",
-                   height: "35px",
-                   marginRight: "10px", 
-                   "&:hover": {
-                     color: "#a37b39"
-                   },
-                }} />
+                  <SummarizeIcon
+                    sx={{
+                      color: "white",
+                      width: "35px",
+                      height: "35px",
+                      marginRight: "10px",
+                      "&:hover": {
+                        color: "#a37b39",
+                      },
+                    }}
+                  />
                 </Tooltip>
               </a>
             </Box>
@@ -263,7 +267,7 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                 flexGrow: 1,
                 fontFamily: "Font2",
                 fontSize: "2rem",
-                fontWeight: 700,
+                fontWeight: 400,
                 color: "#a37b39",
                 textDecoration: "none",
               }}
@@ -321,10 +325,10 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                 onClick={handleTextChangeButtonClick}
                 sx={{
                   "& .MuiSwitch-track": {
-                    backgroundColor: "#ffff", // Cambiar el color del fondo del Switch cuando está desactivado
+                    backgroundColor: "#ffff", 
                   },
                   "& .MuiSwitch-thumb": {
-                    backgroundColor: "#a37b39", // Cambiar el color del círculo del Switch cuando está activado
+                    backgroundColor: "#a37b39", 
                   },
                 }}
               />
@@ -337,8 +341,6 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
   );
 };
 export default ResponsiveAppBar;
-
-
 
 const CustomLink = styled(Link)(() => ({
   display: "flex",

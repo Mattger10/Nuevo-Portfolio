@@ -1,6 +1,6 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import styled from "styled-components";
-import {  Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import perfil from "./../assets/imagenes/paraportfolio4.png";
 import { ThemeProvider } from "@material-ui/core/styles";
 import Theme from "./muiTheme";
@@ -10,63 +10,105 @@ interface HomeProps {
 }
 
 const Home: FunctionComponent<HomeProps> = () => {
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    const textToAnimate = "a creative";
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
+      if (currentIndex === textToAnimate.length) {
+        clearInterval(interval);
+        return;
+      }
+
+      setText(textToAnimate.substring(0, currentIndex + 1)); // Actualizamos el texto con una subcadena
+      currentIndex++;
+    }, 200);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <ThemeProvider theme={Theme}>
-      <ContenedorPrincipal>
-        <Nombre>
-          <Typography
-            sx={{
-              color: "white",
-              fontFamily: "Font2",
-              fontSize: "2rem",
-              padding: "5px",
-            }}
-          >
-            Matías{" "}
-            <span style={{ color: "#a37b39", fontWeight: 600 }}>Zacariaz</span>
-          </Typography>
-        </Nombre>
-        <StyledDiv>
+      <Container>
+        <LeftSection>
           <Img src={perfil} alt="perfil" />
           <Circulo />
-        </StyledDiv>
-      </ContenedorPrincipal>
+        </LeftSection>
+        <RightSection>
+          <Typography
+            sx={{
+              fontSize: "5rem",
+              fontFamily: "Font",
+              whiteSpace: "pre-wrap",
+              color: "white",
+              marginTop: "-10rem",
+              marginLeft: "-5rem",
+              zIndex: 999,
+              "@media screen and (max-width: 768px)": {
+                fontSize: "2rem",
+                marginTop: "0rem",
+                marginLeft: "0rem"
+              },
+            }}
+          >
+            I am <Span>{text}</Span>
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "5rem",
+              fontFamily: "Font",
+              whiteSpace: "pre-wrap",
+              color: "white",
+              marginTop: "-2rem",
+              marginLeft: "-5rem",
+              zIndex: 999,
+              "@media screen and (max-width: 768px)": {
+                fontSize: "2rem",
+                marginTop: "0rem",
+                marginLeft: "0rem"
+              },
+            }}
+          >
+            Full stack developer!
+          </Typography>
+        </RightSection>
+      </Container>
     </ThemeProvider>
   );
 };
 
 export default Home;
 
-const ContenedorPrincipal = styled("div")(() => ({
- width: "auto",
-  border: "2px solid red",
+const Container = styled(Box)`
+  display: flex;
+  height: 100vh;
+  padding: 10px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
-}));
+const LeftSection = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Alinea a la izquierda */
+`;
 
-const Nombre = styled("div")(() => ({
-  display: "flex",
-  flexDirection: "column", // Alinear los elementos en columna
-  alignItems: "flex-start", // Alinear al inicio (izquierda)
-  padding: "20px", // Agregar un relleno para mayor legibilidad y espacio
-  boxSizing: "border-box", // Incluir el relleno en el tamaño total
-
-  // Estilos adicionales para hacerlo responsive
-  "@media (max-width: 560px)": {
-    padding: "10px", // Ajustar el relleno para dispositivos más pequeños
-  },
-}));
-
-const StyledDiv = styled("div")(() => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "100vh",
-  width: "100%",
-}));
+const RightSection = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`;
 
 const Img = styled("img")(() => ({
-  width: "auto", 
-  height: "auto", 
+  width: "35rem",
+  height: "35rem",
   marginTop: "-10rem",
   marginLeft: "10rem",
   zIndex: "1",
@@ -75,28 +117,37 @@ const Img = styled("img")(() => ({
   "&:hover": {
     filter: "grayscale(0%)",
   },
-  "@media (max-width: 560px)": { 
+  "@media (max-width: 768px)": {
     marginTop: "0rem",
     marginLeft: "0rem",
-    width: "24rem", // Cambiado a porcentaje para hacerlo responsive
-  height: "24rem", // Se ajusta automáticamente para mantener la proporción de aspecto
-  }
+    width: "20rem",
+    height: "20rem",
+  },
 }));
 
 const Circulo = styled("div")(() => ({
   position: "absolute",
-  width: "28rem",
-  height: "28rem",
+  width: "35rem",
+  height: "35rem",
   marginTop: "-10rem",
   marginLeft: "10rem",
   background: "linear-gradient(10deg, #3676bb, #a742a1)",
   borderRadius: "50%",
   zIndex: "0",
-  "@media (max-width: 560px)": {
-    width: "24rem",
-    height: "24rem",
-    marginTop: "0rem", // Ajusta el valor para centrar verticalmente
-    marginLeft: "0rem", // Ajusta el valor para centrar horizontalmente
+  "@media (max-width: 768px)": {
+    width: "20rem",
+    height: "20rem",
+    marginTop: "0rem",
+    marginLeft: "0rem",
   },
 }));
 
+const Span = styled.span`
+  font-size: 5rem;
+  font-family: Font;
+  white-space: pre-wrap;
+  color: #a37b39;
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;

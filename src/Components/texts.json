@@ -1,0 +1,17 @@
+{
+  "en": {
+    "Home": "Home",
+    "About me": "About me",
+    "Skills": "Skills",
+    "Projects": "Projects",
+    "Contact": "Contact"
+    
+  },
+  "es": {
+    "Home": "Inicio",
+    "About me": "Acerca de mí",
+    "Skills": "Habilidades",
+    "Projects": "Proyectos",
+    "Contact": "Contacto"
+  }
+}

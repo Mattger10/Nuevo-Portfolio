@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Box, Tooltip, Typography } from "@mui/material";
 import { ThemeProvider } from "@material-ui/core/styles";
 import Theme from "./muiTheme";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 interface ContactProps {
@@ -32,6 +31,7 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
       <Contenedor id={id}>
         <Box
           sx={{
+            marginTop: "5rem",
             marginBottom: "10rem",
             marginRight: "35rem",
             "@media screen and (max-width: 560px)": {
@@ -98,9 +98,10 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
                   marginTop: "0.5rem",
                   marginLeft: "2rem",
                   fontSize: "large",
-                  "@media (max-width: 560px)": { 
+                  "@media (max-width: 560px)": {
                     marginTop: "-1.3rem",
-                    marginLeft: "15rem",                  }
+                    marginLeft: "15rem",
+                  },
                 }}
               />
             </Tooltip>
@@ -121,32 +122,32 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
           >
             +54 0 379 4 818329
             <Tooltip title={copiedPhone ? "Copied!" : "Copy phone number"}>
-          <ContentCopyIcon
-            onClick={handleCopyPhoneClick}
-            sx={{
-              position: "absolute",
-              cursor: "pointer",
-              marginTop: "0.5rem",
-              marginLeft: "2.5rem",
-              fontSize: "large",
-              "@media (max-width: 560px)": { 
-                marginTop: "0rem",
-                marginLeft: "6.4rem",                  }
-            }}
-          />
-        </Tooltip>
+              <ContentCopyIcon
+                onClick={handleCopyPhoneClick}
+                sx={{
+                  position: "absolute",
+                  cursor: "pointer",
+                  marginTop: "0.5rem",
+                  marginLeft: "2.5rem",
+                  fontSize: "large",
+                  "@media (max-width: 560px)": {
+                    marginTop: "0rem",
+                    marginLeft: "6.4rem",
+                  },
+                }}
+              />
+            </Tooltip>
           </Typography>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="home"
+            href="/"
             onClick={() => scrollToSection("home")}
             sx={{
               position: "absolute",
               ml: "95rem",
-              mt: 47,
-              //   display: { xs: "none", md: "flex" },
+              mt: 15,
               fontFamily: "Font3",
               fontSize: "15px",
               letterSpacing: ".1rem",
@@ -155,11 +156,11 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
               cursor: "pointer",
               "@media screen and (max-width: 768px)": {
                 marginLeft: "5rem",
-                marginTop: "20rem",
+                marginTop: "8rem",
               },
             }}
           >
-            BACK TO TOP <KeyboardArrowUpIcon />
+            BACK TO TOP
           </Typography>
         </Box>
       </Contenedor>
@@ -201,9 +202,8 @@ const Contenedor = styled("div")(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "100vh",
+  height: "auto",
   marginBottom: "0rem",
-  width: "auto",  
-  border: "2px solid red",
+  width: "auto",
   "@media screen and (max-width: 768px)": {},
 }));

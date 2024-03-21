@@ -7,7 +7,7 @@ import AboutMe from "./Components/AboutMe";
 import Skills from "./Components/Skills";
 import Proyects from "./Components/Proyects";
 import Contact from "./Components/Contact";
-
+import { BrowserRouter as Router, Routes, Route,} from "react-router-dom";
 
 function App() {
   const [, setCurrentSection] = useState("home");
@@ -20,22 +20,23 @@ function App() {
     }
   };
 
-
-
   return (
-    <>
-      <div>
-        
-      <Fondo src={fondo} alt="" />
-        <ResponsiveAppBar scrollToSection={scrollToSection} />
-        <Home id="home"/>
-        <AboutMe id="aboutme" />
-        <Skills id="skills" />
-        <Proyects id="proyects" />
-        <Contact id="contact"  scrollToSection={scrollToSection} />
-        
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Fondo src={fondo} alt="" />
+            <ResponsiveAppBar scrollToSection={scrollToSection} />
+            <Home id="home" />
+            <AboutMe id="aboutme" />
+            <Skills id="skills" />
+            <Proyects id="proyects" />
+            <Contact id="contact" scrollToSection={scrollToSection} />
+          </>
+        } />
+         
+      </Routes>
+    </Router>
   );
 }
 

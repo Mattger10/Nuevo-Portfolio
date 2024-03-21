@@ -33,10 +33,17 @@ const Skills: FunctionComponent<SkillsProps> = ({ id }) => {
 
   return (
     <ThemeProvider theme={Theme}>
-      <Contenedor id={id}>
-        <Box
+      <Box id={id} sx={{
+         display: "flex",
+         justifyContent: "center",
+         alignItems: "center",
+         height: "100%",
+         width: "100%",  
+         paddingTop: "20px"
+      }}>
+          <Box
           sx={{
-            width: "80rem",
+            width: "80%",
             textAlign: "justify",
             color: "white",
             marginTop: "0rem",
@@ -50,6 +57,7 @@ const Skills: FunctionComponent<SkillsProps> = ({ id }) => {
               fontSize: "30px",
               fontWeight: 500,
               fontFamily: "Font",
+              padding: "20px",
               "@media screen and (max-width: 768px)": {
                 fontSize: "25px",
                 marginLeft: "1rem",
@@ -69,7 +77,7 @@ const Skills: FunctionComponent<SkillsProps> = ({ id }) => {
             ))}
           </ContainerImages>
         </Box>
-      </Contenedor>
+      </Box>
     </ThemeProvider>
   );
 };
@@ -80,7 +88,7 @@ const Img = styled("img")(() => ({
   filter: "grayscale(50%)", // Convertir la imagen a blanco y negro
   transition: "filter 0.5s ease", // Agregar transición para un efecto suave
   cursor: "pointer",
-  width: "35%",
+  width: "30%",
   "&:hover": {
     filter: "grayscale(0%)", // Al hacer hover, mostrar en color
   
@@ -94,7 +102,7 @@ const Contenedor = styled("div")(() => ({
   height: "100vh",
   marginBottom: "0rem",
   width: "auto",  
-  border: "2px solid red",
+  // border: "2px solid red",
   "@media screen and (max-width: 768px)": {},
 }));
 
@@ -103,7 +111,7 @@ const ContainerImages = styled("div")(() => ({
   gridTemplateColumns: "repeat(5, 1fr)",
   gap: "16px", 
   marginTop: "50px", 
-  marginLeft: "2rem",
+  marginLeft: "10rem",
   "@media screen and (max-width: 768px)": {
     gridTemplateColumns: "repeat(3, 1fr)",
     marginLeft: "3rem",

@@ -11,27 +11,35 @@ interface SkillsProps {
   textChanged: boolean; 
 }
 
+interface Skill {
+  name: string;
+  imagePath: string;
+}
+
 const Skills: FunctionComponent<SkillsProps> = ({ id, textChanged }) => {
-  const imagePaths = [
-    "/javascript.svg",
-    "/CSS3.svg",
-    "/nodejs.svg",
-    "/react.svg",
-    "/typescript.svg",
-    "/redux.svg",
-    "/express.png",
-    "/postgresql.svg",
-    "/postman.svg",
-    "/git.svg",
-    "/sequelize.svg",
-    "/HTML5.svg",
-    "/tailwindcss.svg",
-    "/firebase.svg",
-    "/vercel.svg",
-    "/github1.png",
-    "/sass.svg",
-    "/npm.svg",
-    "/materialui.svg",
+
+
+  const skillsData: Skill[] = [
+    { name: "JavaScript", imagePath: "/javascript.svg" },
+    { name: "CSS3", imagePath: "/CSS3.svg" },
+    { name: "Node JS", imagePath: "/nodejs.svg"},
+    { name: "React", imagePath: "/react.svg"},
+    { name: "TypeScript", imagePath: "/typescript.svg"},
+    { name: "Redux", imagePath: "/redux.svg"},
+    { name: "Express", imagePath: "/express.png"},
+    { name: "PostgreSQL", imagePath: "/postgresql.svg"},
+    { name: "Postman", imagePath: "/postman.svg"},
+    { name: "Git", imagePath: "/git.svg"},
+    { name: "Sequelize", imagePath: "/sequelize.svg"},
+    { name: "HTML5", imagePath: "/HTML5.svg"},
+    { name: "Tailwind CSS", imagePath: "/tailwindcss.svg"},
+    { name: "Firebase", imagePath: "/firebase.svg"},
+    { name: "Vercel", imagePath: "/vercel.svg"},
+    { name: "GitHub", imagePath: "/github1.png"},
+    { name: "Sass", imagePath: "/sass.svg"},
+    { name: "Npm", imagePath: "/npm.svg"},
+    { name: "Material UI", imagePath: "/materialui.svg"}
+
   ];
 
   const [currentData, setCurrentData] = useState(aboutMeData);
@@ -83,13 +91,24 @@ const Skills: FunctionComponent<SkillsProps> = ({ id, textChanged }) => {
             {currentData.my} <span style={{ color: "#a37b39", fontWeight: 600 }}>{currentData.skills}</span>
           </Typography>
           <ContainerImages>
-            {imagePaths.map((path, index) => (
-              <Img
-                key={index}
-                src={path}
-                alt={`Skill ${index + 1}`}
-                style={{ borderRadius: "8px", marginBottom: "50px" }}
-              />
+            {skillsData.map((skill, index) => (
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <Img
+                  src={skill.imagePath}
+                  alt={`Skill ${index + 1}`}
+                  style={{ borderRadius: "8px", marginBottom: "10px" }}
+                />
+                <Typography
+                  sx={{
+                    fontSize: "16px",
+                    color: "white",
+                    textAlign: "center",
+                    fontFamily: "Font3",
+                  }}
+                >
+                  {skill.name}
+                </Typography>
+              </div>
             ))}
           </ContainerImages>
         </Box>
@@ -110,6 +129,9 @@ const Img = styled("img")(() => ({
     filter: "grayscale(0%)", // Al hacer hover, mostrar en color
     width: "32%",
   },
+  "@media screen and (max-width: 768px)": {
+    width: "35%",
+  },
 }));
 
 
@@ -119,10 +141,10 @@ const ContainerImages = styled("div")(() => ({
   gridTemplateColumns: "repeat(5, 1fr)",
   gap: "16px", 
   marginTop: "50px", 
-  marginLeft: "10rem",
+  marginLeft: "0rem",
   "@media screen and (max-width: 768px)": {
     gridTemplateColumns: "repeat(3, 1fr)",
-    marginLeft: "3rem",
+    marginLeft: "0rem",
   },
 }));
 

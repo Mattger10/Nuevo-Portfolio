@@ -34,7 +34,7 @@ const AboutMe: FunctionComponent<AboutMeProps> = ({ id, textChanged }) => {
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
-          width: "100%",
+          width: "100%",  
         }}
       >
         <Box
@@ -43,6 +43,9 @@ const AboutMe: FunctionComponent<AboutMeProps> = ({ id, textChanged }) => {
             textAlign: "justify",
             color: "white",
             padding: "20px",
+            "@media screen and (max-width: 768px)": {
+              width: "100%",
+            },
           }}
         >
           <Typography

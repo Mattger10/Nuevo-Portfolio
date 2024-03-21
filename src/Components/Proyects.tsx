@@ -41,6 +41,11 @@ const Proyects: FunctionComponent<ProyectsProps> = ({ id, textChanged }) => {
     setProyectosData(proyectos.proyects);
   }, []);
 
+  const handleProyectoClick = () => {
+    // Hacer scroll hacia arriba
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <ThemeProvider theme={Theme}>
       <Contenedor id={id}>
@@ -63,7 +68,7 @@ const Proyects: FunctionComponent<ProyectsProps> = ({ id, textChanged }) => {
         </Typography>
         <ContainerImages>
           {proyectosData.map((proyecto) => (
-            <CustomLink key={proyecto.id} to={`/details/${proyecto.id}`}>
+            <CustomLink key={proyecto.id} to={`/details/${proyecto.id}`} onClick={handleProyectoClick}>
               <Img src={proyecto.imagen} alt={`Proyecto ${proyecto.id}`} />
             </CustomLink>
           ))}
@@ -96,7 +101,9 @@ const Contenedor = styled("div")(() => ({
   height: "auto",
   width: "auto",
   padding: "20px",
-  "@media screen and (max-width: 768px)": {},
+  "@media screen and (max-width: 768px)": {
+
+  },
 }));
 
 const ContainerImages = styled("div")(() => ({

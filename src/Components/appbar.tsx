@@ -79,9 +79,9 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
       <AppBar
         position="static"
         elevation={0}
-        sx={{ backgroundColor: "transparent" }}
+        sx={{ backgroundColor: "transparent",  }}
       >
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" >
           <Toolbar disableGutters>
             <Box
               sx={{

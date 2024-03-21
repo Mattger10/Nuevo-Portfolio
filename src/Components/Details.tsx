@@ -51,6 +51,7 @@ const Details: FunctionComponent<DetailsProps> = ({ textChanged }) => {
     window.open(proyecto.github, "_blank"); // Abre el enlace en una nueva pestaña
   };
 
+  
   return (
     <ThemeProvider theme={Theme}>
       <Container>

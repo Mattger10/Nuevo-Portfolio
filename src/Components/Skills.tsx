@@ -112,16 +112,7 @@ const Img = styled("img")(() => ({
   },
 }));
 
-const Contenedor = styled("div")(() => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "100vh",
-  marginBottom: "0rem",
-  width: "auto",  
-  // border: "2px solid red",
-  "@media screen and (max-width: 768px)": {},
-}));
+
 
 const ContainerImages = styled("div")(() => ({
   display: "grid",

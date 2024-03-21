@@ -14,7 +14,10 @@ interface Proyect {
   imagen2: string;
   título: string;
   descripción: string;
-  tecnologías: [];
+  tecnologías: string[]; // Definir tecnologías como un array de strings
+  tec: string;
+  pagina: string;
+  github: string;
 }
 
 interface ProyectsProps {
@@ -37,7 +40,6 @@ const Proyects: FunctionComponent<ProyectsProps> = ({ id, textChanged }) => {
   useEffect(() => {
     setProyectosData(proyectos.proyects);
   }, []);
-
 
   return (
     <ThemeProvider theme={Theme}>
@@ -114,4 +116,3 @@ const CustomLink = styled(Link)`
   text-decoration: none;
   color: black;
 `;
-

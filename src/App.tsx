@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Home from "./Components/Home";
 import styled from "styled-components";
-import fondo from "./assets/imagenes/Sin título-1.png";
 import ResponsiveAppBar from "./Components/appbar";
 import AboutMe from "./Components/AboutMe";
 import Skills from "./Components/Skills";
@@ -90,17 +89,7 @@ function App() {
 
 export default App;
 
-const Fondo = styled("img")(() => ({
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  backgroundColor: "#22252a",
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  zIndex: "-9999",
-}));
+
 
 const FondoContainer = styled.div`
   position: fixed;

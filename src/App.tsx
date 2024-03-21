@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Home from "./Components/Home";
 import styled from "styled-components";
 import ResponsiveAppBar from "./Components/appbar";

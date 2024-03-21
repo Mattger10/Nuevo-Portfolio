@@ -10,14 +10,15 @@ import MenuItem from "@mui/material/MenuItem";
 import theme from "./muiTheme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import Popover from "@mui/material/Popover";
-import github from "../assets/imagenes/github.png";
-import linkedin from "../assets/imagenes/linkedin.png";
-import cv from "../assets/imagenes/cv.png";
 import styled from "styled-components";
 import aboutMeData from "./en.json";
 import aboutMeData2 from "./es.json";
-import TranslateIcon from "@mui/icons-material/Translate";
 import { Link } from "react-router-dom";
+import Switch from "@mui/material/Switch";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+import { Tooltip } from "@mui/material";
 
 interface ResponsiveAppBarProps {
   scrollToSection: (sectionId: string) => void;
@@ -40,10 +41,10 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
   React.useEffect(() => {
     if (textChanged) {
       // Cambiar el texto si textChanged es true
-      setCurrentData(aboutMeData2);
+      setCurrentData(aboutMeData);
     } else {
       // Revertir al texto original si textChanged es false
-      setCurrentData(aboutMeData);
+      setCurrentData(aboutMeData2);
     }
   }, [textChanged]);
 
@@ -79,9 +80,9 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
       <AppBar
         position="static"
         elevation={0}
-        sx={{ backgroundColor: "transparent",  }}
+        sx={{ backgroundColor: "transparent" }}
       >
-        <Container maxWidth="xl" >
+        <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box
               sx={{
@@ -89,7 +90,7 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                 display: "flex",
                 alignItems: "center",
                 bottom: "10px",
-                zIndex: "999",
+                zIndex: "9999",
                 "@media (max-width:768px)": {
                   bottom: "10px",
                 },
@@ -100,21 +101,53 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <GitHub src={github} alt="" />
+                <Tooltip title={"GitHub"}>
+                <GitHubIcon
+                  sx={{
+                    color: "white",
+                    width: "30px",
+                    height: "30px",
+                    marginRight: "10px", 
+                    "&:hover": {
+                      color: "#a37b39"
+                    },
+                  }}
+                />
+                </Tooltip>
               </a>
               <a
                 href="https://www.linkedin.com/in/matias-zacariaz-016390185/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin src={linkedin} alt="" />
+                <Tooltip title={"Linkedin"}>
+                <LinkedInIcon  sx={{
+                  color: "white",
+                  width: "40px",
+                  height: "35px",
+                  marginRight: "10px", 
+                  "&:hover": {
+                    color: "#a37b39"
+                  },
+                }}/>
+                </Tooltip>
               </a>
               <a
                 href="https://matiaszacariazportfolio.netlify.app/CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Cv src={cv} alt="" />
+                <Tooltip title={"CV"}>
+                <SummarizeIcon sx={{
+                   color: "white",
+                   width: "35px",
+                   height: "35px",
+                   marginRight: "10px", 
+                   "&:hover": {
+                     color: "#a37b39"
+                   },
+                }} />
+                </Tooltip>
               </a>
             </Box>
             <CustomLink to="/">
@@ -202,42 +235,41 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
               </Popover>
             </Box>
 
-
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                  mr: 1,
-                  display: { xs: "flex", md: "none" },
-                  fontFamily: "Font2",
-                  fontSize: "2rem",
-                  fontWeight: 400,
-                  color: "white",
-                  textDecoration: "none",
-                }}
-              >
-                Matías
-              </Typography>
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "Font2",
-                  fontSize: "2rem",
-                  fontWeight: 700,
-                  color: "#a37b39",
-                  textDecoration: "none",
-                }}
-              >
-                Zacariaz
-              </Typography>
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 1,
+                display: { xs: "flex", md: "none" },
+                fontFamily: "Font2",
+                fontSize: "2rem",
+                fontWeight: 400,
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              Matías
+            </Typography>
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "Font2",
+                fontSize: "2rem",
+                fontWeight: 700,
+                color: "#a37b39",
+                textDecoration: "none",
+              }}
+            >
+              Zacariaz
+            </Typography>
 
             <Box
               sx={{
@@ -282,16 +314,22 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                 </Box>
               ))}
             </Box>
-
-            <TranslateIcon
-              onClick={handleTextChangeButtonClick}
-              sx={{
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#a37b39",
-                },
-              }}
-            />
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Typography variant="body2">ES</Typography>
+              <Switch
+                defaultChecked
+                onClick={handleTextChangeButtonClick}
+                sx={{
+                  "& .MuiSwitch-track": {
+                    backgroundColor: "#ffff", // Cambiar el color del fondo del Switch cuando está desactivado
+                  },
+                  "& .MuiSwitch-thumb": {
+                    backgroundColor: "#a37b39", // Cambiar el color del círculo del Switch cuando está activado
+                  },
+                }}
+              />
+              <Typography variant="body2">EN</Typography>
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>
@@ -300,39 +338,10 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
 };
 export default ResponsiveAppBar;
 
-const GitHub = styled("img")(() => ({
-  width: "30px",
-  height: "30px",
-  marginRight: "10px", // Añade margen derecho para separarlo del resto del contenido
-  opacity: 0.5,
-  "&:hover": {
-    opacity: 0.9,
-  },
-}));
 
-const Linkedin = styled("img")(() => ({
-  width: "40px",
-  height: "40px",
-  marginRight: "10px", // Añade margen derecho para separarlo del resto del contenido
-  opacity: 0.5,
-  "&:hover": {
-    opacity: 0.9,
-  },
-}));
-
-const Cv = styled("img")(() => ({
-  width: "29px",
-  height: "29px",
-  marginRight: "10px", // Añade margen derecho para separarlo del resto del contenido
-  marginTop: "-2px",
-  opacity: 0.5,
-  "&:hover": {
-    opacity: 0.9,
-  },
-}));
 
 const CustomLink = styled(Link)(() => ({
   display: "flex",
-  justifyContent:"center",
+  justifyContent: "center",
   textDecoration: "none",
 }));

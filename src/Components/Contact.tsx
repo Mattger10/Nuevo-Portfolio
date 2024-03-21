@@ -9,7 +9,7 @@ import aboutMeData2 from "./es.json";
 
 interface ContactProps {
   id: string;
-  textChanged: boolean; 
+  textChanged: boolean;
 }
 
 const Contact: FunctionComponent<ContactProps> = ({ id, textChanged }) => {
@@ -50,7 +50,7 @@ const Contact: FunctionComponent<ContactProps> = ({ id, textChanged }) => {
             "@media screen and (max-width: 560px)": {
               width: "5rem",
               marginRight: "0rem",
-              marginLeft: "2.5rem"
+              marginLeft: "2.5rem",
             },
           }}
         >
@@ -86,7 +86,10 @@ const Contact: FunctionComponent<ContactProps> = ({ id, textChanged }) => {
               },
             }}
           >
-            {currentData.me2} <span style={{ color: "#a37b39", fontWeight: 600 }}>{currentData["me now"]}</span>
+            {currentData.me2}{" "}
+            <span style={{ color: "#a37b39", fontWeight: 600 }}>
+              {currentData["me now"]}
+            </span>
           </Typography>
           <Typography
             sx={{
@@ -100,9 +103,17 @@ const Contact: FunctionComponent<ContactProps> = ({ id, textChanged }) => {
                 marginLeft: "-7rem",
                 marginTop: "5rem",
               },
+              "&:hover": {
+                color: "#a37b39",
+              },
             }}
           >
-            matiaszacariaz@hotmail.com
+            <a
+              href="mailto:matiaszacariaz@hotmail.com"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              matiaszacariaz@hotmail.com
+            </a>
             <Tooltip title={copied ? "Copied!" : "Copy email"}>
               <ContentCopyIcon
                 onClick={handleCopyClick}
@@ -152,7 +163,6 @@ const Contact: FunctionComponent<ContactProps> = ({ id, textChanged }) => {
               />
             </Tooltip>
           </Typography>
-        
         </Box>
       </Contenedor>
     </ThemeProvider>

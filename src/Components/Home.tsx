@@ -117,6 +117,7 @@ const LeftSection = styled(Box)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -8rem
   }
 `;
 

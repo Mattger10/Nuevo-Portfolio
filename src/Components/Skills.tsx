@@ -20,25 +20,25 @@ const Skills: FunctionComponent<SkillsProps> = ({ id, textChanged }) => {
 
 
   const skillsData: Skill[] = [
-    { name: "JavaScript", imagePath: "/javascript.svg" },
+    { name: "HTML5", imagePath: "/HTML5.svg"},
     { name: "CSS3", imagePath: "/CSS3.svg" },
-    { name: "Node JS", imagePath: "/nodejs.svg"},
-    { name: "React", imagePath: "/react.svg"},
+    { name: "JavaScript", imagePath: "/javascript.svg" },
     { name: "TypeScript", imagePath: "/typescript.svg"},
+    { name: "Sass", imagePath: "/sass.svg"},
+    { name: "React", imagePath: "/react.svg"},
     { name: "Redux", imagePath: "/redux.svg"},
+    { name: "Node JS", imagePath: "/nodejs.svg"},
     { name: "Express", imagePath: "/express.png"},
     { name: "PostgreSQL", imagePath: "/postgresql.svg"},
-    { name: "Postman", imagePath: "/postman.svg"},
-    { name: "Git", imagePath: "/git.svg"},
-    { name: "Sequelize", imagePath: "/sequelize.svg"},
-    { name: "HTML5", imagePath: "/HTML5.svg"},
-    { name: "Tailwind CSS", imagePath: "/tailwindcss.svg"},
     { name: "Firebase", imagePath: "/firebase.svg"},
+    { name: "Git", imagePath: "/git.svg"},
+    { name: "Npm", imagePath: "/npm.svg"},
+    { name: "Postman", imagePath: "/postman.svg"},
+    { name: "Material UI", imagePath: "/materialui.svg"},
+    { name: "Tailwind CSS", imagePath: "/tailwindcss.svg"},
     { name: "Vercel", imagePath: "/vercel.svg"},
     { name: "GitHub", imagePath: "/github1.png"},
-    { name: "Sass", imagePath: "/sass.svg"},
-    { name: "Npm", imagePath: "/npm.svg"},
-    { name: "Material UI", imagePath: "/materialui.svg"}
+    { name: "Sequelize", imagePath: "/sequelize.svg"},
 
   ];
 
@@ -124,10 +124,11 @@ const Img = styled("img")(() => ({
   transition: "filter 0.5s ease", // Agregar transición para un efecto suave
   cursor: "pointer",
   width: "30%",
-  paddingBottom: "50px",
+ height: "100%",
+ paddingBottom: "10px",
   "&:hover": {
     filter: "grayscale(0%)", // Al hacer hover, mostrar en color
-    width: "32%",
+    
   },
   "@media screen and (max-width: 768px)": {
     width: "35%",

@@ -1,0 +1,70 @@
+{
+  "proyects": [
+    {
+      "id": 1,
+      "imagen": "/1.webp",
+      "imagen2": "/9.webp",
+      "título": "MovieShare: Your Personal Cinema Hub",
+      "descripción": "Welcome to my new app! Do you want to watch your favorite movies and series? With this application, your friends and family can bring their pendrive and enjoy a movie night on their PC or Smart TV. You will be able to see the movie trailers and the streaming service to watch them online. No more discussions about what to watch, just guaranteed fun!",
+      "tecnologías": ["/react.svg", "/javascript.svg", "/CSS3.svg"],
+       "tec": "Used technology",
+       "pagina": "https://mattgerpeliculasyseries.vercel.app/",
+       "github": "https://github.com/Mattger10/app-peliculas"
+    },
+    {
+      "id": 2,
+      "imagen": "/2.webp",
+      "imagen2": "/8.webp",
+      "título": "Saving Pawprints: Where Tails Wag and Hearts Adopt",
+      "descripción": "Welcome to our Final Project for the Soy Henry bootcamp! Picture a pet shelter called 'Saving Pawprints', where the most adorable furry friends await adoption. Here, you can not only meet our lovable dogs in need of a home but also submit an adoption form with just a click. But wait, there's more! We also have a Petshop stocked with delicious foods and irresistible accessories to pamper your new furry friend. Ready to join this amazing cause? Come and be part of the 'Saving Pawprints' family!",
+      "tecnologías": ["/sequelize.svg", "/postgresql.svg", "/react.svg", "/redux.svg", "/javascript.svg", "/firebase.svg", "/CSS3.svg"],
+       "tec": "Used technology",
+       "pagina": "https://www.youtube.com/watch?v=mfArnJwYctw",
+       "github": "https://github.com/Mattger10/PF-Salvando-Huellas"
+    },
+    {
+      "id": 3,
+      "imagen": "/3.webp",
+      "imagen2": "/7.webp",
+      "título": "Total Rhythm: Your Musical Passport",
+      "descripción": "Welcome to the musical revolution in your pocket! Ready to take your listening experience to the next level? So, get ready to immerse yourself in my music website, where fun, rhythm and emotion merge into a unique experience!",
+      "tecnologías": ["/typescript.svg", "/vite.svg", "/materialui.svg"],
+       "tec": "Used technology",
+       "pagina": "https://matiaszacariazportfolio.netlify.app/",
+       "github": ""
+    },
+    {
+      "id": 4,
+      "imagen": "/4.webp",
+      "imagen2": "/10.webp",
+      "título": "React Weather Wizard: Your Forecast Friend!",
+      "descripción": "Get the coolest weather updates with our React app! We keep you in the loop with real-time and accurate forecasts! Our minimalist interface makes it super easy to get the info you need. Save your favorite locations and receive personalized notifications. Don't miss a ray of sunshine with our reliable and speedy weather tool!",
+      "tecnologías": ["/javascript.svg", "/react.svg", "/CSS3.svg"],
+       "tec": "Used technology",
+       "pagina": "https://app-de-clima-ashen.vercel.app/",
+       "github": "https://github.com/Mattger10/APP-de-Clima/tree/master/clima"
+    },
+    {
+      "id": 5,
+      "imagen": "/5.webp",
+      "imagen2": "/11.webp",
+      "título": "Matías' old portfolio: Creativity in Action",
+      "descripción": "Welcome to the world of overflowing creativity! I am Matías, a passionate artist and a master of design. This is my old portfolio, a treasure full of projects that have left their mark and unleashed smiles on those who have seen them.",
+      "tecnologías":  ["/react.svg", "/javascript.svg", "/tailwindcss.svg"],
+       "tec": "Used technology",
+       "pagina": "https://matiaszacariazportfolio.netlify.app/",
+       "github": "https://github.com/Mattger10/portfolio"
+    },
+    {
+      "id": 6,
+      "imagen": "/6.webp",
+      "imagen2": "/12.webp",
+      "título": "Welcome to Glow Up!",
+      "descripción": "A clothing sales platform, carefully designed for my cousin, stands out for its fresh and functional approach. Developed with cutting-edge technology, this website offers users an intuitive shopping experience throughout various specialized sections.",
+      "tecnologías": ["/vite.svg", "/typescript.svg", "/materialui.svg"],
+       "tec": "Used technology",
+       "pagina": "",
+       "github": ""
+    }
+  ]
+}

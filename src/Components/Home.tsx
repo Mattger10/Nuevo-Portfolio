@@ -4,16 +4,30 @@ import { Box, Typography } from "@mui/material";
 import perfil from "./../assets/imagenes/paraportfolio4.png";
 import { ThemeProvider } from "@material-ui/core/styles";
 import Theme from "./muiTheme";
+import aboutMeData from "./en.json";
+import aboutMeData2 from "./es.json";
 
 interface HomeProps {
   id: string;
+  textChanged: boolean; 
 }
 
-const Home: FunctionComponent<HomeProps> = () => {
+const Home: FunctionComponent<HomeProps> = ({textChanged}) => {
   const [text, setText] = useState("");
+  const [currentData, setCurrentData] = useState(aboutMeData);
 
   useEffect(() => {
-    const textToAnimate = "a creative";
+    if (textChanged) {
+      // Cambiar el texto si textChanged es true
+      setCurrentData(aboutMeData2);
+    } else {
+      // Revertir al texto original si textChanged es false
+      setCurrentData(aboutMeData);
+    }
+  }, [textChanged]);
+
+  useEffect(() => {
+    const textToAnimate = currentData["a creative"];
     let currentIndex = 0;
 
     const interval = setInterval(() => {
@@ -27,7 +41,7 @@ const Home: FunctionComponent<HomeProps> = () => {
     }, 200);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentData]);
 
   return (
     <ThemeProvider theme={Theme}>
@@ -53,7 +67,7 @@ const Home: FunctionComponent<HomeProps> = () => {
               },
             }}
           >
-            I am <Span>{text}</Span>
+            {currentData["I am"]} <Span>{text}</Span>
           </Typography>
           <Typography
             sx={{
@@ -71,7 +85,7 @@ const Home: FunctionComponent<HomeProps> = () => {
               },
             }}
           >
-            Full stack developer!
+            {currentData["full stack developer"]}
           </Typography>
         </RightSection>
       </Container>
@@ -97,6 +111,13 @@ const LeftSection = styled(Box)`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; /* Alinea a la izquierda */
+  margin-left: 5rem;
+  @media screen and (max-width: 768px) {
+    margin-left: 0rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const RightSection = styled(Box)`
@@ -107,8 +128,8 @@ const RightSection = styled(Box)`
 `;
 
 const Img = styled("img")(() => ({
-  width: "35rem",
-  height: "35rem",
+  width: "30rem",
+  height: "30rem",
   marginTop: "-10rem",
   marginLeft: "10rem",
   zIndex: "1",
@@ -127,8 +148,8 @@ const Img = styled("img")(() => ({
 
 const Circulo = styled("div")(() => ({
   position: "absolute",
-  width: "35rem",
-  height: "35rem",
+  width: "30rem",
+  height: "30rem",
   marginTop: "-10rem",
   marginLeft: "10rem",
   background: "linear-gradient(10deg, #3676bb, #a742a1)",

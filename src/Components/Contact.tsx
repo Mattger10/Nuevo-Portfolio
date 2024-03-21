@@ -1,18 +1,31 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Box, Tooltip, Typography } from "@mui/material";
 import { ThemeProvider } from "@material-ui/core/styles";
 import Theme from "./muiTheme";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import aboutMeData from "./en.json";
+import aboutMeData2 from "./es.json";
 
 interface ContactProps {
   id: string;
-  scrollToSection: (sectionId: string) => void;
+  textChanged: boolean; 
 }
 
-const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
+const Contact: FunctionComponent<ContactProps> = ({ id, textChanged }) => {
   const [copied, setCopied] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [currentData, setCurrentData] = useState(aboutMeData);
+
+  useEffect(() => {
+    if (textChanged) {
+      // Cambiar el texto si textChanged es true
+      setCurrentData(aboutMeData2);
+    } else {
+      // Revertir al texto original si textChanged es false
+      setCurrentData(aboutMeData);
+    }
+  }, [textChanged]);
 
   const handleCopyClick = () => {
     const emailText = "matiaszacariaz@hotmail.com";
@@ -37,6 +50,7 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
             "@media screen and (max-width: 560px)": {
               width: "5rem",
               marginRight: "0rem",
+              marginLeft: "2.5rem"
             },
           }}
         >
@@ -56,7 +70,7 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
               },
             }}
           >
-            Contact
+            {currentData.contact}
           </Typography>
           <Typography
             sx={{
@@ -72,7 +86,7 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
               },
             }}
           >
-            me <span style={{ color: "#a37b39", fontWeight: 600 }}>now!</span>
+            {currentData.me2} <span style={{ color: "#a37b39", fontWeight: 600 }}>{currentData["me now"]}</span>
           </Typography>
           <Typography
             sx={{
@@ -138,30 +152,7 @@ const Contact: FunctionComponent<ContactProps> = ({ id, scrollToSection }) => {
               />
             </Tooltip>
           </Typography>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            onClick={() => scrollToSection("home")}
-            sx={{
-              position: "absolute",
-              ml: "95rem",
-              mt: 15,
-              fontFamily: "Font3",
-              fontSize: "15px",
-              letterSpacing: ".1rem",
-              color: "#a37b39",
-              textDecoration: "none",
-              cursor: "pointer",
-              "@media screen and (max-width: 768px)": {
-                marginLeft: "5rem",
-                marginTop: "8rem",
-              },
-            }}
-          >
-            BACK TO TOP
-          </Typography>
+        
         </Box>
       </Contenedor>
     </ThemeProvider>
@@ -191,7 +182,7 @@ const Linea = styled("div")(() => ({
   width: "10rem",
   height: "1rem",
   marginTop: "-5.5rem",
-  marginLeft: "50rem",
+  marginLeft: "52rem",
   "@media screen and (max-width: 768px)": {
     marginLeft: "-3rem",
     marginTop: "0rem",

@@ -14,22 +14,38 @@ import github from "../assets/imagenes/github.png";
 import linkedin from "../assets/imagenes/linkedin.png";
 import cv from "../assets/imagenes/cv.png";
 import styled from "styled-components";
+import aboutMeData from "./en.json";
+import aboutMeData2 from "./es.json";
+import TranslateIcon from "@mui/icons-material/Translate";
+import { Link } from "react-router-dom";
 
 interface ResponsiveAppBarProps {
   scrollToSection: (sectionId: string) => void;
+  handleTextChange: () => void; // Definir el tipo de handleTextChange
+  textChanged: boolean;
 }
-
-const pages = ["Home", "About me", "Skills", "Proyects", "Contact"];
-const sectionIds = ["home", "aboutme", "skills", "proyects", "contact"];
 
 const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
   scrollToSection,
+  handleTextChange, // Agrega esta prop
+  textChanged,
 }) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
   const [selectedPage, setSelectedPage] = React.useState<string>(""); // Estado para mantener la página seleccionada
   const open = Boolean(anchorElNav);
+  const [currentData, setCurrentData] = React.useState(aboutMeData);
+
+  React.useEffect(() => {
+    if (textChanged) {
+      // Cambiar el texto si textChanged es true
+      setCurrentData(aboutMeData2);
+    } else {
+      // Revertir al texto original si textChanged es false
+      setCurrentData(aboutMeData);
+    }
+  }, [textChanged]);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -40,10 +56,23 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
   };
 
   const handleMenuItemClick = (sectionId: string) => {
-    scrollToSection(sectionId); // Desplaza la página a la sección correspondiente
-    setSelectedPage(sectionId); // Actualiza la página seleccionada
+    // Si es la página principal, redirige a "/"
+    if (sectionId === "") {
+      window.location.href = "/";
+    } else {
+      // Si no, desplaza a la sección correspondiente
+      scrollToSection(sectionId);
+      setSelectedPage(sectionId);
+      handleCloseNavMenu();
+    }
+  };
+  const handleTextChangeButtonClick = () => {
+    handleTextChange(); // Llama a la función handleTextChange pasada desde App
     handleCloseNavMenu(); // Cierra el menú
   };
+
+  const pages = [currentData["home"], ...currentData.pages];
+  const sectionIds = ["", ...["aboutme", "skills", "proyects", "contact"]];
 
   return (
     <ThemeProvider theme={theme}>
@@ -54,68 +83,76 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-          <Box sx={{ position: "fixed", display: 'flex', alignItems: 'center',bottom: "10px", zIndex: "999",  "@media (max-width:768px)": {
-                    bottom: "10px",
-                  },}}> 
-            <a
-              href="https://github.com/Mattger10"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHub src={github} alt="" />
-            </a>
-            <a
-            href="https://www.linkedin.com/in/matias-zacariaz-016390185/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin src={linkedin} alt="" />
-          </a>
-          <a
-            href="https://matiaszacariazportfolio.netlify.app/CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-          <Cv src={cv} alt="" />
-          </a>
-          </Box>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
+            <Box
               sx={{
-                mr: 0,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "Font2",
-                fontSize: "2rem",
-                fontWeight: 400,
-                padding: "5px",
-                color: "white",
-                textDecoration: "none",
+                position: "fixed",
+                display: "flex",
+                alignItems: "center",
+                bottom: "10px",
+                zIndex: "999",
+                "@media (max-width:768px)": {
+                  bottom: "10px",
+                },
               }}
             >
-              Matías{" "}
-            </Typography>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "Font2",
-                fontSize: "2rem",
-                fontWeight: 700,
-                padding: "5px",
-                color: "#a37b39",
-                textDecoration: "none",
-              }}
-            >
-              Zacariaz
-            </Typography>
+              <a
+                href="https://github.com/Mattger10"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GitHub src={github} alt="" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/matias-zacariaz-016390185/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin src={linkedin} alt="" />
+              </a>
+              <a
+                href="https://matiaszacariazportfolio.netlify.app/CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Cv src={cv} alt="" />
+              </a>
+            </Box>
+            <CustomLink to="/">
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  mr: 0,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "Font2",
+                  fontSize: "2rem",
+                  fontWeight: 400,
+                  padding: "5px",
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Matías{" "}
+              </Typography>
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "Font2",
+                  fontSize: "2rem",
+                  fontWeight: 700,
+                  padding: "5px",
+                  color: "#a37b39",
+                  textDecoration: "none",
+                }}
+              >
+                Zacariaz
+              </Typography>
+            </CustomLink>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
@@ -157,49 +194,50 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
                   <MenuItem
                     key={page}
                     onClick={() => handleMenuItemClick(sectionIds[index])}
-                    sx={{color: "white"}}
+                    sx={{ color: "white" }}
                   >
-                    <Typography textAlign="center" >{page}</Typography>
+                    <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
                 ))}
               </Popover>
             </Box>
 
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 1,
-                display: { xs: "flex", md: "none" },
-                fontFamily: "Font2",
-                fontSize: "2rem",
-                fontWeight: 400,
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              Matías
-            </Typography>
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "Font2",
-                fontSize: "2rem",
-                fontWeight: 700,
-                color: "#a37b39",
-                textDecoration: "none",
-              }}
-            >
-              Zacariaz
-            </Typography>
+
+              <Typography
+                variant="h5"
+                noWrap
+                component="a"
+                href="/"
+                sx={{
+                  mr: 1,
+                  display: { xs: "flex", md: "none" },
+                  fontFamily: "Font2",
+                  fontSize: "2rem",
+                  fontWeight: 400,
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Matías
+              </Typography>
+              <Typography
+                variant="h5"
+                noWrap
+                component="a"
+                href="/"
+                sx={{
+                  mr: 2,
+                  display: { xs: "flex", md: "none" },
+                  flexGrow: 1,
+                  fontFamily: "Font2",
+                  fontSize: "2rem",
+                  fontWeight: 700,
+                  color: "#a37b39",
+                  textDecoration: "none",
+                }}
+              >
+                Zacariaz
+              </Typography>
 
             <Box
               sx={{
@@ -245,11 +283,17 @@ const ResponsiveAppBar: React.FunctionComponent<ResponsiveAppBarProps> = ({
               ))}
             </Box>
 
-            
-           
+            <TranslateIcon
+              onClick={handleTextChangeButtonClick}
+              sx={{
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#a37b39",
+                },
+              }}
+            />
           </Toolbar>
         </Container>
-
       </AppBar>
     </ThemeProvider>
   );
@@ -280,8 +324,15 @@ const Cv = styled("img")(() => ({
   width: "29px",
   height: "29px",
   marginRight: "10px", // Añade margen derecho para separarlo del resto del contenido
+  marginTop: "-2px",
   opacity: 0.5,
   "&:hover": {
     opacity: 0.9,
   },
+}));
+
+const CustomLink = styled(Link)(() => ({
+  display: "flex",
+  justifyContent:"center",
+  textDecoration: "none",
 }));

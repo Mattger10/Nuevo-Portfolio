@@ -1,14 +1,17 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import Theme from "./muiTheme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import styled from "styled-components";
+import aboutMeData from "./en.json";
+import aboutMeData2 from "./es.json";
 
 interface SkillsProps {
   id: string;
+  textChanged: boolean; 
 }
 
-const Skills: FunctionComponent<SkillsProps> = ({ id }) => {
+const Skills: FunctionComponent<SkillsProps> = ({ id, textChanged }) => {
   const imagePaths = [
     "/javascript.svg",
     "/CSS3.svg",
@@ -30,6 +33,19 @@ const Skills: FunctionComponent<SkillsProps> = ({ id }) => {
     "/npm.svg",
     "/materialui.svg",
   ];
+
+  const [currentData, setCurrentData] = useState(aboutMeData);
+
+  useEffect(() => {
+    if (textChanged) {
+      // Cambiar el texto si textChanged es true
+      setCurrentData(aboutMeData2);
+    } else {
+      // Revertir al texto original si textChanged es false
+      setCurrentData(aboutMeData);
+    }
+  }, [textChanged]);
+
 
   return (
     <ThemeProvider theme={Theme}>
@@ -57,14 +73,14 @@ const Skills: FunctionComponent<SkillsProps> = ({ id }) => {
               fontSize: "30px",
               fontWeight: 500,
               fontFamily: "Font",
-              padding: "20px",
+              paddingTop: "50px",
               "@media screen and (max-width: 768px)": {
                 fontSize: "25px",
-                marginLeft: "1rem",
+                marginLeft: "2.5rem",
               },
             }}
           >
-            My <span style={{ color: "#a37b39", fontWeight: 600 }}>skills</span>
+            {currentData.my} <span style={{ color: "#a37b39", fontWeight: 600 }}>{currentData.skills}</span>
           </Typography>
           <ContainerImages>
             {imagePaths.map((path, index) => (
@@ -89,9 +105,10 @@ const Img = styled("img")(() => ({
   transition: "filter 0.5s ease", // Agregar transición para un efecto suave
   cursor: "pointer",
   width: "30%",
+  paddingBottom: "50px",
   "&:hover": {
     filter: "grayscale(0%)", // Al hacer hover, mostrar en color
-  
+    width: "32%",
   },
 }));
 

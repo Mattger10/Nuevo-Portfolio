@@ -1,19 +1,44 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import Theme from "./muiTheme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import styled from "styled-components";
-import AppPeliculas from "../assets/imagenes/appeliculas.gif";
-import salvandohuellas from "../assets/imagenes/salvandohuellas.gif";
-import espacio from "../assets/imagenes/espacio.gif";
-import musica from "../assets/imagenes/musica.gif";
+import aboutMeData from "./en.json";
+import aboutMeData2 from "./es.json";
+import proyectos from "./proyectos.json";
 import { Link } from "react-router-dom";
+
+interface Proyect {
+  id: number;
+  imagen: string;
+  imagen2: string;
+  título: string;
+  descripción: string;
+  tecnologías: [];
+}
 
 interface ProyectsProps {
   id: string;
+  textChanged: boolean;
 }
 
-const Proyects: FunctionComponent<ProyectsProps> = ({ id }) => {
+const Proyects: FunctionComponent<ProyectsProps> = ({ id, textChanged }) => {
+  const [currentData, setCurrentData] = useState(aboutMeData);
+  const [proyectosData, setProyectosData] = useState<Proyect[]>([]);
+
+  useEffect(() => {
+    if (textChanged) {
+      setCurrentData(aboutMeData2);
+    } else {
+      setCurrentData(aboutMeData);
+    }
+  }, [textChanged]);
+
+  useEffect(() => {
+    setProyectosData(proyectos.proyects);
+  }, []);
+
+
   return (
     <ThemeProvider theme={Theme}>
       <Contenedor id={id}>
@@ -29,22 +54,17 @@ const Proyects: FunctionComponent<ProyectsProps> = ({ id }) => {
             },
           }}
         >
-          My <span style={{ color: "#a37b39", fontWeight: 600 }}>proyects</span>
+          {currentData.my}{" "}
+          <span style={{ color: "#a37b39", fontWeight: 600 }}>
+            {currentData.proyects}
+          </span>
         </Typography>
         <ContainerImages>
-          <Link to="https://mattgerpeliculasyseries.vercel.app/">
-            {" "}
-            <Img src={AppPeliculas} />{" "}
-          </Link>
-          <Link to="https://www.youtube.com/watch?v=mfArnJwYctw">
-            {" "}
-            <Img src={salvandohuellas} />{" "}
-          </Link>
-          <Img src={musica} />
-          <Link to="">
-            {" "}
-            <Img src={espacio} />{" "}
-          </Link>
+          {proyectosData.map((proyecto) => (
+            <CustomLink key={proyecto.id} to={`/details/${proyecto.id}`}>
+              <Img src={proyecto.imagen} alt={`Proyecto ${proyecto.id}`} />
+            </CustomLink>
+          ))}
         </ContainerImages>
       </Contenedor>
     </ThemeProvider>
@@ -69,8 +89,8 @@ const Img = styled("img")(() => ({
 
 const Contenedor = styled("div")(() => ({
   display: "flex",
- alignItems: "center",
-  flexDirection: 'column',
+  alignItems: "center",
+  flexDirection: "column",
   height: "auto",
   width: "auto",
   padding: "20px",
@@ -79,9 +99,9 @@ const Contenedor = styled("div")(() => ({
 
 const ContainerImages = styled("div")(() => ({
   display: "grid",
-  gridTemplateColumns: "repeat(2, 1fr)",
+  gridTemplateColumns: "repeat(3, 1fr)",
   gap: "50px",
-  marginTop: "5rem",
+  marginTop: "0rem",
   padding: "50px",
   "@media screen and (max-width: 768px)": {
     gridTemplateColumns: "repeat(1, 1fr)",
@@ -89,3 +109,9 @@ const ContainerImages = styled("div")(() => ({
     gap: "20px",
   },
 }));
+
+const CustomLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+

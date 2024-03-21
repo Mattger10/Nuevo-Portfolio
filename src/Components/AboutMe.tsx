@@ -1,13 +1,30 @@
-import { FunctionComponent } from "react";
-import { Box, Typography } from "@mui/material";
+import { FunctionComponent, useEffect, useState } from "react";
+import { Box, Typography} from "@mui/material";
 import Theme from "./muiTheme";
 import { ThemeProvider } from "@material-ui/core/styles";
+import aboutMeData from "./en.json";
+import aboutMeData2 from "./es.json";
+
 
 interface AboutMeProps {
   id: string;
+  textChanged: boolean;
 }
 
-const AboutMe: FunctionComponent<AboutMeProps> = ({ id }) => {
+const AboutMe: FunctionComponent<AboutMeProps> = ({ id, textChanged }) => {
+
+  const [currentData, setCurrentData] = useState(aboutMeData);
+
+  useEffect(() => {
+    if (textChanged) {
+      // Cambiar el texto si textChanged es true
+      setCurrentData(aboutMeData2);
+    } else {
+      // Revertir al texto original si textChanged es false
+      setCurrentData(aboutMeData);
+    }
+  }, [textChanged]);
+
   return (
     <ThemeProvider theme={Theme}>
       <Box
@@ -38,7 +55,10 @@ const AboutMe: FunctionComponent<AboutMeProps> = ({ id }) => {
               },
             }}
           >
-            About <span style={{ color: "#a37b39", fontWeight: 600 }}>me</span>
+            {currentData.about}{" "}
+            <span style={{ color: "#a37b39", fontWeight: 600 }}>
+              {currentData.me}
+            </span>
           </Typography>
           <Typography
             sx={{
@@ -50,18 +70,9 @@ const AboutMe: FunctionComponent<AboutMeProps> = ({ id }) => {
               },
             }}
           >
-            I am looking for projects and challenges to put into practice my
-            skills and knowledge acquired during my time at the Soy Henry
-            bootcamp. Since he started in January 2023, he has not stopped
-            learning and acquiring new knowledge. I consider myself a friendly
-            person and I like to get along with everyone. Some of my hobbies are
-            playing video games, reading, watching videos and learning new
-            things. I also really like to travel and see new places. I am
-            motivated by the challenge and always give my best in everything I
-            do. I am currently open to job offers and I believe that I can
-            contribute interesting things to companies or projects that need me
-            due to my ability to adapt, responsibility and flexibility.
+            {currentData.description}
           </Typography>
+          
         </Box>
       </Box>
     </ThemeProvider>

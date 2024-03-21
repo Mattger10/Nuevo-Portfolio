@@ -1,0 +1,70 @@
+{
+  "proyects": [
+    {
+      "id": 1,
+      "imagen": "/1.webp",
+      "imagen2": "/9.webp",
+      "título": "CineComparte: Tu Hub Personal de Cine",
+      "descripción": "¡Bienvenidos a mi nueva app! ¿Querés ver tus películas y series favoritas? Con esta aplicación, tus amigos y familiares pueden traer su pendrive y disfrutar de una noche de cine en su PC o Smart TV. Podrán ver los trailers de películas y el servicio de streaming para verlas online ¡No más discusiones sobre qué ver, solo diversión asegurada!",
+      "tecnologías": ["/react.svg", "/javascript.svg", "/CSS3.svg"],
+      "tec": "Tecnologías utilizadas",
+      "pagina": "https://mattgerpeliculasyseries.vercel.app/",
+      "github": "https://github.com/Mattger10/app-peliculas"
+    },
+    {
+      "id": 2,
+      "imagen": "/2.webp",
+      "imagen2": "/8.webp",
+      "título": "Salvando huellas: donde las colas se mueven y los corazones adoptan",
+      "descripción": "¡Bienvenidos a nuestro Proyecto Final del bootcamp de Soy Henry! Imagina un refugio de animales llamado 'Salvando Huellas', donde los peludos más adorables esperan ser adoptados. Aquí no solo podrás conocer a nuestros caninos necesitados de amor y un hogar, sino que también podrás enviar un formulario de adopción con tan solo un clic. Pero espera, ¡eso no es todo! También tenemos un Petshop repleto de alimentos deliciosos y accesorios irresistibles para consentir a tu nueva mascota. ¿Listo para unirte a esta increíble causa? ¡Ven y sé parte de la familia de 'Salvando Huellas'!",
+      "tecnologías": ["/sequelize.svg", "/postgresql.svg", "/react.svg", "/redux.svg", "/javascript.svg", "/firebase.svg", "/CSS3.svg"],
+      "tec": "Tecnologías utilizadas",
+      "pagina": "https://www.youtube.com/watch?v=mfArnJwYctw",
+      "github": "https://github.com/Mattger10/PF-Salvando-Huellas"
+    },
+    {
+      "id": 3,
+      "imagen": "/3.webp",
+      "imagen2": "/7.webp",
+      "título": "Ritmo Total: Tu Pasaporte Musical",
+      "descripción": "¡Bienvenidos a la revolución musical en tu bolsillo! ¿Listo para llevar tu experiencia auditiva al siguiente nivel? ¡Entonces, prepárate para sumergirte en mi web de música, donde la diversión, el ritmo y la emoción se fusionan en una experiencia única!",
+      "tecnologías": ["/typescript.svg", "/vite.svg", "/materialui.svg"],
+      "tec": "Tecnologías utilizadas",
+      "pagina": "",
+      "github": ""
+    },
+    {
+        "id": 4,
+        "imagen": "/4.webp",
+        "imagen2": "/10.webp",
+        "título": "¡Mago del Clima en React: Tu Amigo del Pronóstico!",
+        "descripción": "¡Obtén el clima más fresco con nuestra aplicación de React! ¡Te mantenemos al tanto con pronósticos en tiempo real y precisos! Nuestra interfaz minimalista hace que sea súper fácil obtener la información que necesitas. Guarda tus lugares favoritos y recibe notificaciones personalizadas. ¡No te pierdas ni un rayo de sol con nuestra herramienta confiable y rápida para el clima!",
+        "tecnologías": ["/javascript.svg", "/react.svg", "/CSS3.svg"],
+        "tec": "Tecnologías utilizadas",
+        "pagina": "https://app-de-clima-ashen.vercel.app/",
+        "github": "https://github.com/Mattger10/APP-de-Clima/tree/master/clima"
+      },
+      {
+        "id": 5,
+        "imagen": "/5.webp",
+        "imagen2": "/11.webp",
+        "título": "Portfolio antiguo de Matías: Creatividad en Acción",
+        "descripción": "¡Bienvenidos al mundo de la creatividad desbordante! Soy Matías, un artista apasionado y un maestro del diseño. Este es mi antiguo portfolio, un tesoro repleto de proyectos que han dejado huella y han desatado sonrisas en aquellos que los han visto.",
+        "tecnologías": ["/react.svg", "/javascript.svg", "/tailwindcss.svg"],
+        "tec": "Tecnologías utilizadas",
+        "pagina": "https://matiaszacariazportfolio.netlify.app/",
+        "github": "https://github.com/Mattger10/portfolio"
+      },
+      {
+        "id": 6,
+        "imagen": "/6.webp",
+        "imagen2": "/12.webp",
+        "título": "¡Bienvenidos a Glow Up!",
+        "descripción": "Una plataforma de venta de ropa, diseñada con esmero para mi prima, destaca por su enfoque fresco y funcional. Desarrollada con tecnología de vanguardia, esta web ofrece a los usuarios una experiencia de compra intuitiva a lo largo de diversas secciones especializadas.",
+        "tecnologías": ["/vite.svg", "/typescript.svg", "/materialui.svg"],
+        "tec": "Tecnologías utilizadas",
+        "pagina": "",
+        "github": ""
+      }
+  ]
+}

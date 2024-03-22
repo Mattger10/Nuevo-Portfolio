@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
 import Theme from "./muiTheme";
 import { ThemeProvider } from "@material-ui/core/styles";
@@ -9,6 +9,8 @@ import proyectosEn from "./proyectosEn.json"; // Importar el archivo de proyecto
 import Proyects from "./Proyects";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import NearMeIcon from "@mui/icons-material/NearMe";
+import CircularProgress from "@mui/material/CircularProgress";
+
 
 interface Proyect {
   id: number;
@@ -21,6 +23,8 @@ interface Proyect {
   pagina: string;
   github: string;
 }
+
+
 
 interface DetailsProps {
   textChanged: boolean; // Definir la prop textChanged
@@ -40,7 +44,11 @@ const Details: FunctionComponent<DetailsProps> = ({ textChanged }) => {
   }, [id, textChanged]);
 
   if (!proyecto) {
-    return <div>Loading...</div>;
+    return (
+      <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", height: '80vh', color: "linear-gradient(10deg, #3676bb, #a742a1)",}}>
+        <CircularProgress  sx={{ color: '#a37b39',  }} />
+      </Box>
+    );
   }
 
   const handleProbarAhoraClick = () => {
@@ -51,7 +59,6 @@ const Details: FunctionComponent<DetailsProps> = ({ textChanged }) => {
     window.open(proyecto.github, "_blank"); // Abre el enlace en una nueva pestaña
   };
 
-  
   return (
     <ThemeProvider theme={Theme}>
       <Container>
@@ -121,7 +128,6 @@ const Details: FunctionComponent<DetailsProps> = ({ textChanged }) => {
             </ContainerImages>
           </Box>
           <ButtonContainer>
-           
             <Button
               variant="contained"
               onClick={handleProbarAhoraClick}
@@ -138,7 +144,7 @@ const Details: FunctionComponent<DetailsProps> = ({ textChanged }) => {
               Probar ahora{" "}
               <NearMeIcon sx={{ fontSize: "medium", paddingLeft: "10px" }} />
             </Button>
-            
+
             <Button
               variant="contained"
               onClick={handleGitHubClick}
@@ -155,7 +161,6 @@ const Details: FunctionComponent<DetailsProps> = ({ textChanged }) => {
               Repositorio{" "}
               <GitHubIcon sx={{ fontSize: "medium", paddingLeft: "10px" }} />
             </Button>
-            
           </ButtonContainer>
         </Content>
       </Container>
@@ -227,3 +232,4 @@ const Content = styled(Box)`
   flex-direction: column;
   align-items: center; /* Centra el contenido horizontalmente */
 `;
+

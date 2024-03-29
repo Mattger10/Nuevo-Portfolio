@@ -30,8 +30,8 @@
       "descripción": "¡Bienvenidos a la revolución musical en tu bolsillo! ¿Listo para llevar tu experiencia auditiva al siguiente nivel? ¡Entonces, prepárate para sumergirte en mi web de música, donde la diversión, el ritmo y la emoción se fusionan en una experiencia única!",
       "tecnologías": ["/typescript.svg", "/vite.svg", "/materialui.svg"],
       "tec": "Tecnologías utilizadas",
-      "pagina": "",
-      "github": ""
+      "pagina": "https://ritmo-total.vercel.app/",
+      "github": "https://github.com/Mattger10/Ritmo-total/tree/main/reproductor-musical"
     },
     {
         "id": 4,

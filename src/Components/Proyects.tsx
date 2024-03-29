@@ -85,7 +85,7 @@ const Img = styled("img")(() => ({
   filter: "grayscale(50%)", // Convertir la imagen a blanco y negro
   transition: "filter 0.5s ease", // Agregar transición para un efecto suave
   cursor: "pointer",
-  width: "30rem",
+  width: "25rem",
   "&:hover": {
     filter: "grayscale(0%)", // Al hacer hover, mostrar en color
   },
@@ -109,7 +109,7 @@ const Contenedor = styled("div")(() => ({
 const ContainerImages = styled("div")(() => ({
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
-  gap: "50px",
+  gap: "40px",
   marginTop: "0rem",
   padding: "50px",
   "@media screen and (max-width: 768px)": {

@@ -13,5 +13,11 @@
   "me2": "",
   "back to top": "VOLVER A ARRIBA",
   "home": "Inicio",
-  "pages": [ "Sobre mí", "Habilidades", "Proyectos", "Contacto"]
+ 
+  "pages": [
+    "About me",
+    "Skills",
+    "Proyects",
+    "Contact"
+  ]
 }

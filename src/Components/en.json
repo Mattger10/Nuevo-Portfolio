@@ -13,10 +13,5 @@
   "me2": "me",
   "back to top": "BACK TO TOP",
   "home": "Home",
-  "pages": [
-    "About me",
-    "Skills",
-    "Proyects",
-    "Contact"
-  ]
+  "pages": [ "Sobre mí", "Habilidades", "Proyectos", "Contacto"]
 }

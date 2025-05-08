@@ -63,8 +63,8 @@
         "descripción": "Una plataforma de venta de ropa, diseñada con esmero para mi prima, destaca por su enfoque fresco y funcional. Desarrollada con tecnología de vanguardia, esta web ofrece a los usuarios una experiencia de compra intuitiva a lo largo de diversas secciones especializadas.",
         "tecnologías": ["/vite.svg", "/typescript.svg", "/materialui.svg"],
         "tec": "Tecnologías utilizadas",
-        "pagina": "",
-        "github": ""
+        "pagina": "https://glow-up-jet.vercel.app/",
+        "github": "https://github.com/Mattger10"
       }
   ]
 }
